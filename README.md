@@ -21,3 +21,15 @@ A brief, one-sentence "elevator pitch" of what this project does.
 
 ## 📄 License
 This project is licensed under the [MIT License](LICENSE).
+
+---
+## 🏁 New Project Initialization
+> [!TIP]
+> After creating a new repo from this template, follow these **5 Clicks** to activate the security logic:
+
+1. **Settings > General**: Enable `Automatically delete head branches`.
+2. **Settings > Security**: Enable `Push Protection`.
+3. **Settings > Branches**: Add a protection rule for `main`.
+4. **Branch Protection**: Check `Require status checks to pass before merging`.
+5. **Status Search**: Search and select `Security Scan`.
+---
