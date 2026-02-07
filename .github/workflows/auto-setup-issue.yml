@@ -1,0 +1,28 @@
+name: Auto Setup Issue
+on:
+  create: # Triggers when the repository (and its main branch) is first created
+    branches: [main]
+
+jobs:
+  create_issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Create Setup Checklist Issue
+        run: |
+          gh issue create \
+            --title "🚀 Initial Repo Setup: Security & Automation" \
+            --body "## 🏁 New Project Initialization Checklist
+            Welcome to your new repo! Follow these steps to activate the **Phase 2** logic:
+
+            - [ ] **1. Settings > General**: Enable \`Automatically delete head branches\`.
+            - [ ] **2. Settings > Security**: Enable \`Push Protection\`.
+            - [ ] **3. Settings > Branches**: Add a protection rule for \`main\`.
+            - [ ] **4. Branch Protection**: Check \`Require status checks to pass before merging\`.
+            - [ ] **5. Status Search**: Search and select \`Security Scan\`.
+            - [ ] **6. README**: Update the Security Badge URL in the README to: \`https://github.com/${{ github.repository }}/actions/workflows/security.yml/badge.svg\`
+
+            *Once finished, you can close this issue.*"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
