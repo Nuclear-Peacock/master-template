@@ -1,18 +1,43 @@
 version: 2
 updates:
+  # 1. GitHub Actions (The Security Shield & Workflows)
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
     groups:
-      action-deps:
+      github-actions-deps:
         patterns: ["*"]
 
-  - package-ecosystem: "npm" # Replace with "pip" for Python
+  # 2. Python (For your AI/ML scripts)
+  - package-ecosystem: "pip"
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
     groups:
-      minor-patches:
+      python-deps:
         patterns: ["*"]
         update-types: ["minor", "patch"]
+
+  # 3. JavaScript/Node.js (For web front-ends)
+  - package-ecosystem: "npm"
+    directory: "/" # If using a subfolder like /javascript, change this
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    groups:
+      node-deps:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+
+  # 4. Ruby (Just in case you have more demo/legacy code)
+  - package-ecosystem: "ruby"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    groups:
+      ruby-deps:
+        patterns: ["*"]
