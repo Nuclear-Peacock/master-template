@@ -9,7 +9,7 @@ on:
     - cron: '0 0 * * 1' # Runs every Monday at midnight
   workflow_dispatch:      # Allows manual trigger
 
-# ADD THIS ENV BLOCK TO FIX THE WARNING
+# Fixes the Node.js deprecation warning
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
@@ -24,6 +24,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          
       - name: Run Gitleaks
         uses: gitleaks/gitleaks-action@v2
         env:
