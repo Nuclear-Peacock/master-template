@@ -14,16 +14,6 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  security-scan:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        
-      - name: Scan for secrets
-        uses: gitleaks/gitleaks-action@v2
-
-jobs:
   scan:
     name: Security Scan
     runs-on: ubuntu-latest
